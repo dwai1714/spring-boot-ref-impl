@@ -1,0 +1,20 @@
+<div class="container pad-top">
+  <a ui-sref="newLiquor" class="btn-primary btn-lg nodecoration">Add New Liquor</a>
+  <table class="table liquortable">
+      <tr>
+          <td><h3>All Liquors</h3></td>
+          <td></td>
+      </tr>
+      <tr ng-repeat="liquor in liquors">
+          <td>{{liquor.name}}</td>
+          <td>{{liquor.description}}</td>
+          <td>{{liquor.type}}</td>
+          <td>
+              <!--Changed by Bharat-->
+              <a class="btn btn-primary" ng-click="viewLiquor(liquor.id)">View</a>
+              <a class="btn btn-primary" ng-click="viewLiquorHistory(liquor.id)">View History</a>
+              <a class="btn btn-danger"  ng-click="deleteLiquor(liquor)">Delete</a>
+          </td>
+      </tr>
+  </table>
+</div>

@@ -1,0 +1,55 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema:
+    hibernate:
+      # possible values: validate | update | create | create-drop
+      ddl-auto: update
+  jackson:
+      serialization:
+        WRITE_DATES_AS_TIMESTAMPS : false
+      
+      
+  #datasource:
+  #  url: "jdbc:h2:mem:testdb"
+  #  driverClassName: org.h2.Driver
+  #  username: sa
+  #  password: ""
+  #  data: "classpath*:data.sql"
+  #  database-platform: org.hibernate.dialect.H2Dialect
+  #  h2.console.enabled: true   
+  datasource:
+    url: jdbc:postgresql://localhost:5432/
+    username : dwai1714
+    #username: dwaip
+    #password: Accion123
+    driver-class-name: org.postgresql.Driver 
+    #url: jdbc:postgresql://localhost:5432/dwai1714 #${url}
+    #username: dwai1714  #${username} 
+    #password: dwai1714 #{password} #
+    tomcat:
+      initial-size: 1
+logging:
+  level:
+    root: fatal
+    com.das: debug
+    org.springframework: ERROR
+    org.hibernate: ERROR
+  file: /tmp/config/logs/liq-service.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+server:
+    port: 5000
+    #ssl.key-store: /tmp/cacerts.p12
+    #ssl.key-store-password: Accion
+
+audit:
+    serverUrl: http://auditservice-env.jbdypyue4w.ap-southeast-1.elasticbeanstalk.com/  #http://localhost:9000
+    createdBy: createdUser
+    lastModifiedBy : lastModifiedBy
+    createdDate: createdDate 
+    lastModifiedDate : lastModifiedDate
+    
